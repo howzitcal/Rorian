@@ -11,3 +11,4 @@ if get_arg("--jetbrains-mono"):
     run_command(
         "gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'"
     )
+    run_command("rm ./jetbrains-fonts.tar")

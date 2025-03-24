@@ -14,7 +14,7 @@ if get_arg("--tidy-menu"):
             "org.gnome.Characters.desktop",
             "org.gnome.font-viewer.desktop",
             "org.gnome.Cheese.desktop",
-            "teminator.desktop",
+            "terminator.desktop",
         ],
     )
 

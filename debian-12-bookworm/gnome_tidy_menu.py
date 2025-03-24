@@ -2,6 +2,7 @@ from _common import *
 from gnome_manage_menu_folders import add_folder_to_menu, add_items_to_folder
 
 if get_arg("--tidy-menu"):
+    run_command('gsettings set org.gnome.desktop.app-folders folder-children "[]"')
     add_folder_to_menu("Accessories", "accessories")
     add_folder_to_menu("Utils", "utils")
     add_folder_to_menu("UI", "ui")

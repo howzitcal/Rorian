@@ -2,7 +2,7 @@ from _common import *
 
 if get_arg("--jetbrains-mono"):
     run_command(
-        "wget https://raw.githubusercontent.com/calobyte/nubuntu/refs/heads/main/fonts/jetbrains-fonts.tar -O ./jetbrains-fonts.tar"
+        "wget https://raw.githubusercontent.com/calobyte/rorian/refs/heads/main/public/fonts/jetbrains-fonts.tar -O ./jetbrains-fonts.tar"
     )
     run_command(
         'sudo tar -xf ./jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --wildcards "*.ttf"'

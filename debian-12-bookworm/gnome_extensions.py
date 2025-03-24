@@ -8,3 +8,4 @@ if get_arg("--dock"):
     run_command(
         "unzip ./dash-to-dock.zip -d $HOME/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com"
     )
+    run_command("gnome-extensions enable dash-to-dock@micxgx.gmail.com")

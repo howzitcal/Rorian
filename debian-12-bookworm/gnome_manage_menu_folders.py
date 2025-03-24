@@ -42,9 +42,29 @@ def add_folder_to_menu(folder_name, folder_id):
         log(f"{folder_name}:{folder_id} already registered.")
 
 
-def add_items_to_folder(folder_id, folder_items):
-    print(folder_id)
-    print(folder_items)
+def add_items_to_folder(folder_id, folder_apps):
+    apps_in_folder = run_command(
+        "gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/{folder_id}/ apps",
+        True,
+    )
+    apps_in_folder = (
+        apps_in_folder.replace("[", "")
+        .replace("]", "")
+        .replace("'", "")
+        .replace("\n", "")
+        .split(", ")
+    )
+
+    for app in folder_apps:
+        if app not in apps_in_folder:
+            apps_in_folder.append(app)
+            apps_in_folder_string = ", ".join([f"'{app}'" for app in apps_in_folder])
+            run_command(
+                f'gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/{folder_id}/ apps "[ {apps_in_folder_string} ]"'
+            )
+            log(f"Items {app} added to Folder:{folder_id}.")
+        else:
+            log(f"Items {app} already in Folder:{folder_id}.")
 
 
 for folder in add_folders:

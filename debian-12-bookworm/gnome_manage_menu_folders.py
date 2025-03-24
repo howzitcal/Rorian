@@ -72,12 +72,7 @@ for folder in add_folders:
     add_folder_to_menu(folder_name, folder_id)
 
 
-for folder in add_folder_items:
-    [folder_id, folder_items] = folder
-    folder_items = ", ".join(
-        [
-            f"'{folder_item.lstrip().rstrip()}'"
-            for folder_item in folder_items.split(",")
-        ]
-    )
-    add_items_to_folder(folder_id, folder_items)
+for folder_apps in add_folder_items:
+    [folder_id, folder_apps] = folder_apps
+
+    add_items_to_folder(folder_id, folder_apps.split(","))

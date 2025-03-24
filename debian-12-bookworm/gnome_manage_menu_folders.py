@@ -62,9 +62,9 @@ def add_items_to_folder(folder_id, folder_apps):
             run_command(
                 f'gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/{folder_id}/ apps "[ {apps_in_folder_string} ]"'
             )
-            log(f"Items {app} added to Folder:{folder_id}.")
+            log(f"App {app} added to Folder:{folder_id}.")
         else:
-            log(f"Items {app} already in Folder:{folder_id}.")
+            log(f"App {app} already in Folder:{folder_id}.")
 
 
 for folder in add_folders:

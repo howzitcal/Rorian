@@ -19,3 +19,4 @@ if get_arg("--debloat-gnome"):
         gnome-terminal \
         gnome-console
     """)
+    run_command("sudo apt autoremove -yq")

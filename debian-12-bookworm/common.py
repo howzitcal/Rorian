@@ -5,7 +5,7 @@ import datetime
 def run_command(command):
     log(f"RUNNING COMMAND: '{command}'")
     if (os.system(command) != 0):
-        log("COMMAND '{command}' failed.", True)
+        log(f"COMMAND '{command}' failed.", True)
         raise SystemError(f"Command '{command}' failed.")
 
 def log(message, error=False):

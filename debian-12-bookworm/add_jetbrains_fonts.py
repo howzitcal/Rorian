@@ -7,7 +7,7 @@ if get_arg("--jetbrains-mono"):
     run_command(
         'sudo tar -xf ./jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --wildcards "*.ttf"'
     )
-    run_command("c-cache -f")
+    run_command("fc-cache -f")
     run_command(
         "gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'"
     )

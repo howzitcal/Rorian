@@ -3,7 +3,7 @@ from _common import *
 if get_arg("--debloat-gnome"):
     run_command(
         """
-    sudo apt remove -yq \
+    sudo apt-get remove -yq \
         gnome-games \
         gnome-maps \
         synaptic \
@@ -21,4 +21,4 @@ if get_arg("--debloat-gnome"):
         gnome-console
     """
     )
-    run_command("sudo apt autoremove -yq")
+    run_command("sudo apt-get autoremove -yq")

@@ -16,5 +16,7 @@ sudo apt-get install -yq curl python3 && curl -s https://raw.githubusercontent.c
 --better-window-buttons \
 --dock \
 --jetbrains-mono \
---tidy-menu
+--tidy-menu \
+--add-menu-folder=Dev:dev \
+--add-folder-items=dev:code.desktop
 ```

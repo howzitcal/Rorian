@@ -1,5 +1,7 @@
 from _common import *
 
+run_command("mkdir -p $HOME/.local/share/gnome-shell/extensions/")
+
 if get_arg("--dock"):
     run_command(
         "wget -c https://github.com/micheleg/dash-to-dock/releases/latest/download/dash-to-dock@micxgx.gmail.com.zip -O ./dash-to-dock.zip"

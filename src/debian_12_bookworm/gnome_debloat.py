@@ -1,7 +1,8 @@
 from _common import *
 
 if get_arg("--debloat-gnome"):
-    run_command("""
+    run_command(
+        """
     sudo apt remove -yq \
         gnome-games \
         gnome-maps \
@@ -18,5 +19,6 @@ if get_arg("--debloat-gnome"):
         shotwell-* \
         gnome-terminal \
         gnome-console
-    """)
+    """
+    )
     run_command("sudo apt autoremove -yq")

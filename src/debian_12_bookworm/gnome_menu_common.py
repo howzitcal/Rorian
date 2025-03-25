@@ -1,16 +1,5 @@
 from _common import *
 
-add_folders = [
-    folder.replace("--add-folder=", "").split(":")
-    for folder in args
-    if folder.startswith("--add-folder=")
-]
-add_folder_items = [
-    folder.replace("--add-folder-items=", "").split(":")
-    for folder in args
-    if folder.startswith("--add-folder-items=")
-]
-
 
 def add_folder_to_menu(folder_name, folder_id):
     reg_folders = run_command(
@@ -65,14 +54,3 @@ def add_items_to_folder(folder_id, folder_apps):
             log(f"App {app} added to Folder:{folder_id}.")
         else:
             log(f"App {app} already in Folder:{folder_id}.")
-
-
-for folder in add_folders:
-    [folder_name, folder_id] = folder
-    add_folder_to_menu(folder_name, folder_id)
-
-
-for folder_apps in add_folder_items:
-    [folder_id, folder_apps] = folder_apps
-
-    add_items_to_folder(folder_id, folder_apps.split(","))

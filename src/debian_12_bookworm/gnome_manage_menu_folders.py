@@ -2,14 +2,14 @@ from _common import *
 from gnome_menu_common import add_folder_to_menu, add_items_to_folder
 
 add_folders = [
-    folder.replace("--add-folder=", "").split(":")
+    folder.replace("--add-menu-folder=", "").split(":")
     for folder in args
-    if folder.startswith("--add-folder=")
+    if folder.startswith("--add-menu-folder=")
 ]
 add_folder_items = [
-    folder.replace("--add-folder-items=", "").split(":")
+    folder.replace("--add-menu-folder-items=", "").split(":")
     for folder in args
-    if folder.startswith("--add-folder-items=")
+    if folder.startswith("--add-menu-folder-items=")
 ]
 
 for folder in add_folders:

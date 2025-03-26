@@ -8,9 +8,9 @@ INCLUDE = [
     "install_docker",
     "install_vscode",
     "flatpak_install",
-    "gnome_enhancements",
     "add_jetbrains_fonts",
     "gnome_extensions",
     "gnome_manage_menu_folders",
     "gnome_tidy_menu",
+    "gnome_enhancements",
 ]

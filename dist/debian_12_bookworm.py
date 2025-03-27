@@ -129,33 +129,6 @@ if apt_removes:
     run_command(f"sudo apt-get remove -yq {removeables}")
 
 ######
-# FILE: gnome_debloat
-######
-
-if get_arg("--debloat-gnome"):
-    run_command(
-        """
-    sudo apt-get remove -yq \
-        gnome-games \
-        gnome-maps \
-        synaptic \
-        libreoffice* \
-        gnome-music* \
-        rhythmbox* \
-        yelp \
-        transmission-* \
-        firefox* \
-        evolution \
-        totem \
-        gnome-weather \
-        shotwell-* \
-        gnome-terminal \
-        gnome-console
-    """
-    )
-    run_command("sudo apt-get autoremove -yq")
-
-######
 # FILE: install_chrome
 ######
 
@@ -228,21 +201,31 @@ if get_arg("--install-flatpaks"):
     for flatpak in flatpaks:
         run_command(f"sudo flatpak install --noninteractive -y {flatpak}")
 ######
-# FILE: add_jetbrains_fonts
+# FILE: gnome_debloat
 ######
 
-if get_arg("--jetbrains-mono"):
+if get_arg("--debloat-gnome"):
     run_command(
-        "wget https://raw.githubusercontent.com/calobyte/rorian/refs/heads/main/public/fonts/jetbrains-fonts.tar -O ./jetbrains-fonts.tar"
+        """
+    sudo apt-get remove -yq \
+        gnome-games \
+        gnome-maps \
+        synaptic \
+        libreoffice* \
+        gnome-music* \
+        rhythmbox* \
+        yelp \
+        transmission-* \
+        firefox* \
+        evolution \
+        totem \
+        gnome-weather \
+        shotwell-* \
+        gnome-terminal \
+        gnome-console
+    """
     )
-    run_command(
-        'sudo tar -xf ./jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --wildcards "*.ttf"'
-    )
-    run_command("fc-cache -f")
-    run_command(
-        "gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'"
-    )
-    run_command("rm ./jetbrains-fonts.tar")
+    run_command("sudo apt-get autoremove -yq")
 
 ######
 # FILE: gnome_manage_menu_folders
@@ -341,6 +324,23 @@ if get_arg("--dark-theme"):
     if get_arg("--install-flatpaks"):
         run_command("sudo flatpak install  --noninteractive -y org.gtk.Gtk3theme.Adwaita-dark")
         run_command("sudo flatpak override --env=GTK_THEME=Adwaita-dark")
+######
+# FILE: add_jetbrains_fonts
+######
+
+if get_arg("--jetbrains-mono"):
+    run_command(
+        "wget https://raw.githubusercontent.com/calobyte/rorian/refs/heads/main/public/fonts/jetbrains-fonts.tar -O ./jetbrains-fonts.tar"
+    )
+    run_command(
+        'sudo tar -xf ./jetbrains-fonts.tar -C /usr/share/fonts/truetype/ --wildcards "*.ttf"'
+    )
+    run_command("fc-cache -f")
+    run_command(
+        "gsettings set org.gnome.desktop.interface monospace-font-name 'Jetbrains Mono 13'"
+    )
+    run_command("rm ./jetbrains-fonts.tar")
+
 ######
 # FILE: gnome_extensions
 ######

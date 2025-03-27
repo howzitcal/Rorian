@@ -5,7 +5,7 @@ if get_arg("--dock"):
     run_command(
         'gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "dash-to-dock@micxgx.gmail.com"',
         False,
-        False,
+        True,
     )
 
     run_command(

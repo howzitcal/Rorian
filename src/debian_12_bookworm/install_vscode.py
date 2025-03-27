@@ -14,5 +14,5 @@ if get_arg("--install-vscode"):
         'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null'
     )
     run_command("rm -f packages.microsoft.gpg")
-    run_command("sudo apt update")
-    run_command("sudo apt install -yq code")
+    run_command("sudo apt-get update")
+    run_command("sudo apt-get install -yq code")

@@ -163,7 +163,7 @@ if get_arg("--install-chrome"):
     run_command(
         "wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O ./chrome.deb"
     )
-    run_command("sudo apt install -yq ./chrome.deb")
+    run_command("sudo apt-get install -yq ./chrome.deb")
     run_command("rm ./chrome.deb")
 
 ######
@@ -212,8 +212,8 @@ if get_arg("--install-vscode"):
         'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null'
     )
     run_command("rm -f packages.microsoft.gpg")
-    run_command("sudo apt update")
-    run_command("sudo apt install -yq code")
+    run_command("sudo apt-get update")
+    run_command("sudo apt-get install -yq code")
 
 ######
 # FILE: flatpak_install
@@ -253,7 +253,7 @@ if get_arg("--dock"):
     run_command(
         'gdbus call --session --dest org.gnome.Shell.Extensions --object-path /org/gnome/Shell/Extensions --method org.gnome.Shell.Extensions.InstallRemoteExtension "dash-to-dock@micxgx.gmail.com"',
         False,
-        False,
+        True,
     )
 
     run_command(

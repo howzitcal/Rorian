@@ -9,9 +9,6 @@ if get_arg("--dock"):
     )
 
     run_command(
-        "gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false"
-    )
-    run_command(
         "gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40"
     )
     run_command(

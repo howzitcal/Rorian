@@ -4,10 +4,11 @@ import datetime
 
 args = sys.argv
 
-def run_command(command, op=False):
+
+def run_command(command, op=False, can_fail=False):
     log(f"RUNNING COMMAND: '{command}'")
-    if(not op):
-        if (os.system(command) != 0):
+    if not op:
+        if os.system(command) != 0 and can_fail == False:
             log(f"COMMAND '{command}' FAILED.", True)
             raise SystemError(f"Command '{command}' failed.")
         log(f"COMMAND '{command}' RAN SUCCESSFULLY.")
@@ -19,6 +20,7 @@ def run_command(command, op=False):
 
 def log(message, error=False):
     print(f"[{'LOG' if not error else 'ERROR'}][{datetime.datetime.now()}][{message}]")
+
 
 def get_arg(check):
     for arg in args:
